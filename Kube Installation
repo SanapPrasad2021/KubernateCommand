@@ -49,3 +49,9 @@ mkdir ~/.kube
 cp /etc/kubernetes/admin.conf ~/.kube/config
 kubectl get pods -A
 kubectl get nodes
+
+kubectl get pods -A -o wide
+
+curl https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/calico.yaml -O
+kubectl apply -f calico.yaml
+kubeadm tocken create --print-join-command
