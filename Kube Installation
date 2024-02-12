@@ -43,4 +43,9 @@ kubelet --version
 kubeadm --version
 kubectl --version
 
-kubeadm
+kubeadm init --apiserver-advertise-address `hostname -i | awk '{print $1}'` --pod-network-cidr 10.10.0.0/16 --service-cidr 20.20.0.0./16 --service-dns-domain thinknyx.org 
+
+mkdir ~/.kube
+cp /etc/kubernetes/admin.conf ~/.kube/config
+kubectl get pods -A
+kubectl get nodes
