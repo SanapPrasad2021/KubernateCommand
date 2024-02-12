@@ -37,3 +37,10 @@ apt-get update
 apt-get install -y cri-o kubelet kubeadm kubectl
 
 systemctl start crio.service
+
+crio --version
+kubelet --version
+kubeadm --version
+kubectl --version
+
+kubeadm
