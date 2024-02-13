@@ -89,3 +89,11 @@ kubectl scale deployment {podname} --replicas 4
 kubectl scale deployment {podname} --replicas 1
 
 kubectl expose depolyment httpd --name httpd-svc --type NodePort --port 80 --target-port 80
+
+   26  apt-get install -y vim
+   27  vi calico.yaml
+   28  kubectl apply -f calico.yaml
+   29  kubectl get pods -A -o
+   30  kubectl get pods -A wide
+   31  kubectl get pods -A -o wide
+   32  kubeadm token create --print-join-command
