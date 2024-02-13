@@ -68,9 +68,24 @@ kubectl node lease //checking pod health
 ------------------------------------
 kubectl create namespace thinknyx
 kubectl config set --current --namespace thinknyx
+kubectl config set-context --current --namespace
 kubectl config get-contexts
 
 kubectl config set-context --current --namespace thinknyx //adding namepace
 kubectl get pods //show pods
 kubectl config get-contexts //show cluster informations
 cat ~/.kube/config //showing the certificate
+
+kubectl run mypod --image public.ecr.aws/p9u1y6y4/httpd:1.2 //creating pod
+kubectl describe pod mypod //
+kubectl delete pod mypod
+kubectl describe nodes | grep -i taint
+
+kubectl taint node node1 node-role.kubernetes.io/control-plane-
+
+curl {ip address}
+
+kubectl scale deployment {podname} --replicas 4
+kubectl scale deployment {podname} --replicas 1
+
+kubectl expose depolyment httpd --name httpd-svc --type NodePort --port 80 --target-port 80
