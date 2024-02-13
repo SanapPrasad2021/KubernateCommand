@@ -59,3 +59,18 @@ kubeadm token create --print-join-command
 kubectl get pods -A
 kubectl get pods //check default pods
 kubectl config get-context
+
+--------------------------------
+kube public 
+kube system
+kube public
+kubectl node lease //checking pod health
+------------------------------------
+kubectl create namespace thinknyx
+kubectl config set --current --namespace thinknyx
+kubectl config get-contexts
+
+kubectl config set-context --current --namespace thinknyx //adding namepace
+kubectl get pods //show pods
+kubectl config get-contexts //show cluster informations
+cat ~/.kube/config //showing the certificate
