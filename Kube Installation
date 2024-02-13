@@ -90,6 +90,11 @@ kubectl scale deployment {podname} --replicas 1
 
 kubectl expose depolyment httpd --name httpd-svc --type NodePort --port 80 --target-port 80
 
+apt-get install -y openssh-server
+shh user@node2 //in command 
+yes //choose option
+sudo su - //for change user node to root
+
    26  apt-get install -y vim
    27  vi calico.yaml
    28  kubectl apply -f calico.yaml
