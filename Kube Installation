@@ -92,6 +92,8 @@ kubectl scale deployment {podname} --replicas 1
 kubectl expose deployment httpd --name httpd-svc --type NodePort --port 80 --target-port 80
 //For Service 
 kubectl expose deployment tomcat --name tomcat-svc --type NodePort --port 80 --target-port 8080
+//For With External IP Service 
+kubectl expose deployment tomcat --name tomcat-svc --type NodePort --port 80 --target-port 8080 --external-ip 192.168.100.132 
 
 apt-get install -y openssh-server
 shh user@node2 //in command 
@@ -105,3 +107,9 @@ sudo su - //for change user node to root
    30  kubectl get pods -A wide
    31  kubectl get pods -A -o wide
    32  kubeadm token create --print-join-command
+
+----------------------------------------------------------------14 FEB
+kubectl create deployment tomcat --image public.ecr.aws/p9u1y6y4/tomcat:10.1.16 --replicas 1
+kubectl edit service tomcat-svc
+keybord command ESC button with i
+kubectl get rs
