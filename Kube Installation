@@ -227,10 +227,41 @@ kubectl get rs
   118  kubectl create secret generic kubeconfig --form-file ~/.kube/config
   119  kubectl create secret generic kubeconfig --from-file ~/.kube/config
   120  kubectl get secret
+  121  kubectl describe secrets kubeconfig
+  122  kubeadm token create --print-join-command
 -----------------------------------------------------------
 sudo apt-get install -y net-tools
 ifconfig
 sudo mount -t nfs 192.168.100.134:/data/share /shared
 df -h
-  121  kubectl describe secrets kubeconfig
-  122  kubeadm token create --print-join-command
+   38  kubectl get pv
+   39  kubectl apply -f persistant-volume.yaml 
+   40  kubectl get pv
+-------Persistent.yaml--------
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: per-valume
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: manual
+  hostPath:
+    path: /shared
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: per-valume-claim
+spec:
+  resources:
+    requests:
+      storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+
