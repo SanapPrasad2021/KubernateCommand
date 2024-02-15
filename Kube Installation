@@ -113,3 +113,124 @@ kubectl create deployment tomcat --image public.ecr.aws/p9u1y6y4/tomcat:10.1.16 
 kubectl edit service tomcat-svc
 keybord command ESC button with i
 kubectl get rs
+-----------------------------
+ 63  kubectl expose deployment postgres --name postgres-svc --type NodePort --port 80 --target-port 5432
+   64  kubectl create namespace database
+   65  kubectl get service
+   66  kubectl get rs
+
+--------------------------------------
+
+    1  sudo apt update -y
+    2  sudo apt upgrade -y
+    3  sudo apt install open-vm-tools
+    4  cat /etc/os-release 
+    5  ipconfiggggggg
+    6  ifconfig
+    7  sudo apt-get update
+    8  ifconfig
+    9  sudo apt-get install net-tools
+   10  ifconfig
+   11  sudo apt-get install -y apache2
+   12  sudo apt install nfs-common -y
+   13  ip a
+   14  ping 8.8.8.8
+   15  ip a
+   16  sudo -s
+   17  df
+   18  sudo apt install openssh-server
+   19  k
+   20  sudo swapoff -a
+   21  cat <<EOF | sudo tee etc/module-load.d/k8s.conf overlay br_netfilter EOF
+   22  c
+   23  ccc
+   24  exit
+   25  sudo exit
+   26  d
+   27  kubectl get pods -A
+   28  dir
+   29  mv postgress.yml postgres.yaml
+   30  dir
+   31  kubectl apply -f postgres.yaml
+   32  kubectl get pods
+   33  kubectl get pods -A
+   34* kubectl delete database postgras
+   35  kubectl describe pod 
+   36  kubectl describe pod database
+   37  kubectl describe pod postgress
+   38  kubectl apply -f postgres.yaml
+   39  kubectl get pods -A
+   40  kubectl get pods -n database
+   41  kubectl delete pods -n database
+   42  kubectl delete pods database
+   43  kubectl delete pod database
+   44  kubectl delete pod postgres-5459dccd47-pd2hr
+   45  kubectl delete postgres-5459dccd47-pd2hr
+   46  dir
+   47  rm postgress.yml
+   48  dir
+   49  kubectl apply -f postgres.yaml
+   50  kubectl get pods -n database
+   51  kubectl describe pod postgres-cc7749c4f-s5pzc -n database
+   52  kubectl logs postgres-cc7749c4f-s5pzc -n database
+   53  kubectl apply -f postgres.yaml
+   54  cat post
+   55* cat 
+   56  kubectl get secretes -n database
+   57  kubectl get secrets -n database
+   58  kubectl apply -f postgres.yaml
+   59  kubectl get pods -n database
+   60  kubectl delete pod postgres-5459dccd47-pd2hr
+
+----------------------------------------------------------
+   68  kubectl get pods -n psql
+   69  kubectl get pods -n default
+   70  psql -h postgres.database.svc.thinknyx.org -U postgres -d postgres
+   71  kubectl describe -n kube-system configmaps coredns
+   72  kubectl exec -it psql -- /bin/bash
+   73  kubectl get namespace
+   74  kubectl get service
+   75  kubectl get -n database
+   76  kubectl get -n database service
+   77  kubectl get service
+   78  kubectl get -n database service
+
+------------------------------------------------------------
+15 FEB
+-----------------------
+
+   93  kubectl apply -f psql.yaml 
+   94  kubectl delete pod psql
+   95  kubectl apply -f psql.yaml 
+   96  kubectl get pod
+   97  kubectl log pod psql
+   98  kubectl logs psql
+   99  kubectl logs psql kubectl apply -f kubectl_using_secret_as_volume.yml 
+  100  kubectl logs psql kubectl apply -f kubectl_using_secret_as_volume.yaml 
+  101  kubectl logs psql kubectl apply -f deployment.yaml 
+  102* 
+  103  kubectl apply -f deployment.yaml 
+  104  kubectl logs psql
+  105  kubectl get pods
+  106* kubectl get pods 
+  107  kubectl get logs psql
+  108  history
+  109  kubectl logs psql
+  110  ls -ltr /etc/kubernates
+  111  ls
+  112  ls ltr
+  113  ls -ltr
+  114  ls -ltr Desktop/
+  115  ls -ltr /etc/kubernates/
+  116  ls -ltr /etc/kubernetes/
+  117  ls -ltr ~/.kube/
+  118  kubectl create secret generic kubeconfig --form-file ~/.kube/config
+  119  kubectl create secret generic kubeconfig --from-file ~/.kube/config
+  120  kubectl get secret
+-----------------------------------------------------------
+sudo apt-get install -y net-tools
+ifconfig
+sudo mount -t nfs 192.168.100.134:/data/share /shared
+df -h
+  121  kubectl describe secrets kubeconfig
+  122  kubeadm token create --print-join-command
