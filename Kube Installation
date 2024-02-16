@@ -305,6 +305,9 @@ spec:
 
 ----------------------
 commands:
-    1. kubectl apply -f sts-demo.yaml
-    2. kubectl get pods
-    3. kubectl rollout restart statefulset mystatefulset && kubectl get pods -w
+    1. kubectl apply -f sts-demo.yaml     //for apply 
+    2. kubectl get pods     //show pods
+    3. kubectl rollout restart statefulset mystatefulset && kubectl get pods -w     //restart statefulset and open watch state
+    4. kubectl delete statefulset mystatefulset    //for delete statefulset
+    5. ls -ltr /temp/     //for show files
+    6. tail -f /temp/sts.txt     //for check messages in txt file
