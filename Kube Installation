@@ -265,3 +265,46 @@ spec:
   accessModes:
     - ReadWriteOnce
 
+-----------------------------------------------------------------------
+16 FEB
+--------------------------------------------
+sts-demo.yaml
+-------------------apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mystatefulset
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  serviceName: sts-demo
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: public.ecr.aws/p9u1y6y4/ubuntu:kubectl
+        command:
+          - sh
+          - -c
+          - echo [INFO] Hi form `hostname` at `date` .  >> /temp/sts.txt && tail -f /temp/sts.txt
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: sts-demo
+          mountPath: /temp
+      volumes:
+      - name: sts-demo
+        hostPath:
+          type: DirectoryOrCreate
+          path: /temp
+
+----------------------
+commands:
+    1. kubectl apply -f sts-demo.yaml
+    2. kubectl get pods
+    3. kubectl rollout restart statefulset mystatefulset && kubectl get pods -w
